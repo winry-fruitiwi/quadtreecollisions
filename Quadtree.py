@@ -1,3 +1,4 @@
+from primitives import *
 # quadtree is the goal. It should have a boundary, and split up if it hasn't divided. Later
 # I won't display the points so I can see the quadtree's miracle!
 class Quadtree:

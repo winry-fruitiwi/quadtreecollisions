@@ -4,9 +4,10 @@
 # this describes an object that is literally just a point, but a more powerful point
 # because it is active in a quadtree. Necessary for testing, but otherwise not so important.
 class Point:
-    def __init__(self, x, y):
+    def __init__(self, x, y, data):
         self.x = x
         self.y = y
+        self.data = data # this holds the actual particle
     
     def show(self):
         stroke(0, 0, 100, 80)
@@ -79,7 +80,7 @@ class Particle:
             fill(0, 0, 50, 80)
         
         circle(self.x, self.y, self.r * 2)
-        self.highlighted = False
+        # self.highlighted = False # this is a hard-code
     
     
     # set the highlighted to false
@@ -89,8 +90,9 @@ class Particle:
     
     # like the random walker, you make particles move randomly.
     def move(self):
-        self.x += random(-1, 1)
-        self.y += random(-1, 1)
+        JITTER = 1
+        self.x += random(-JITTER, JITTER)
+        self.y += random(-JITTER, JITTER)
     
     
     # changes the highlight variable from False to True
